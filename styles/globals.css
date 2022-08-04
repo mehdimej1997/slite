@@ -1,9 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Garnett";
+  font-weight: 200;
+  src: url(/fonts/Garnett-Light.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Garnett";
+  font-weight: 400;
+  src: url(/fonts/Garnett-Regular.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Garnett";
+  font-weight: 600;
+  src: url(/fonts/Garnett-Medium.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Garnett";
+  font-weight: 800;
+  src: url(/fonts/Garnett-Semibold.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Garnett";
+  font-weight: 900;
+  src: url(/fonts/Garnett-Bold.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Garnett-italic";
+  font-weight: 800;
+  src: url(/fonts/Garnett-SemiBoldItalic.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Garnett-italic";
+  font-weight: 600;
+  src: url(/fonts/Garnett-MediumItalic.ttf) format("truetype");
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: "Garnett", sans-serif;
 }
 
 a {
@@ -20,7 +65,156 @@ a {
     color-scheme: dark;
   }
   body {
-    color: white;
-    background: black;
+    color: #2f2f30;
+    background: #f9efe4;
+    position: relative;
   }
+}
+
+.CEO {
+  font-family: "Charter";
+  font-size: 24px;
+  line-height: 1.4;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+.CEO-image {
+  animation: bounce 2s ease-in-out infinite;
+}
+
+.ball1 {
+  animation: ball1 3s ease-in-out infinite;
+}
+
+.ball2 {
+  animation: ball2 3.5s ease-in-out infinite;
+}
+
+.ball3 {
+  animation: ball3 3.8s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0% {
+    bottom: -10px;
+  }
+  50% {
+    bottom: -20px;
+  }
+  100% {
+    bottom: -10;
+  }
+}
+
+@keyframes ball1 {
+  0% {
+    top: -32px;
+  }
+  50% {
+    top: -20px;
+  }
+  100% {
+    top: -32px;
+  }
+}
+
+@keyframes ball2 {
+  0% {
+    top: -80px;
+  }
+  50% {
+    top: -60px;
+  }
+  100% {
+    top: -80px;
+  }
+}
+
+@keyframes ball3 {
+  0% {
+    bottom: -32px;
+  }
+  50% {
+    bottom: -20px;
+  }
+  100% {
+    bottom: -32px;
+  }
+}
+
+.card {
+  background-color: #fff !important;
+  border-radius: 5px;
+  margin: 5px;
+}
+
+.mySwiper {
+  width: 500px;
+  height: 120px;
+}
+
+.orbit {
+  height: 200px;
+  background: url("/img/orbit.png");
+}
+
+.sandwish_menu {
+  right: 0;
+  position: relative;
+  transition: all 1s ease-in-out;
+}
+
+.sandwish_menu1 {
+  height: 2px;
+  width: 24px;
+  position: absolute;
+  top: -8px;
+  background-color: rgb(47 47 48 / var(--tw-bg-opacity));
+  border-radius: 50px;
+  transform: rotate(0deg);
+  transition: all 1s ease-in-out;
+}
+
+.sandwish_menu2 {
+  height: 2px;
+  width: 24px;
+  position: absolute;
+  transform: rotate(0deg);
+  top: 8px;
+  background-color: rgb(47 47 48 / var(--tw-bg-opacity));
+  border-radius: 50px;
+  transition: all 1s ease-in-out;
+}
+
+.sandwish_menu1-open {
+  transform: rotate(50deg);
+}
+
+.sandwish_menu2-open {
+  transform: rotate(-50deg);
+  top: -8px;
+}
+
+.sandwish_menu-open {
+  right: -200px;
+}
+
+.sandwish_menu--list {
+  height: 0;
+  transition: all 1s ease-in-out;
+}
+
+.shown {
+  height: 350px;
+}
+
+.footer {
+  background-image: url("../public/img/footer-bf.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.carousel-template {
+  transition-timing-function: linear;
 }
