@@ -4,33 +4,7 @@ import { Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import ButtonTransparent from "../../components/Buttons/button-transparent.component copy";
 
-function Templates() {
-  const carousel = [
-    { title: "Talent acquisition", imgUrl: "/img/start.png", color: "bg-pink" },
-    {
-      title: "Stand-up meeting",
-      imgUrl: "/img/meeting.png",
-      color: "bg-orange",
-    },
-    { title: "Creative brief", imgUrl: "/img/brief.png", color: "bg-blue" },
-    {
-      title: "Employee handbook",
-      imgUrl: "/img/handbook.png",
-      color: "bg-customWhite",
-    },
-    { title: "Weekly re-views", imgUrl: "/img/reviews.png", color: "bg-pink" },
-    { title: "Product planning", imgUrl: "/img/Plan.png", color: "bg-blue" },
-    {
-      title: "Onboarding cheklist",
-      imgUrl: "/img/checklist.png",
-      color: "bg-orange",
-    },
-    {
-      title: "Product specs",
-      imgUrl: "/img/specs.png",
-      color: "bg-customWhite",
-    },
-  ];
+function Templates({ carousel }) {
   return (
     <div className="footer mt-16 text-center relative bg-white ">
       <h1 className="text-xl font-semibold py-8">
