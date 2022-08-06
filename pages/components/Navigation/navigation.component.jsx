@@ -1,18 +1,43 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ButtonBlue from "../Buttons/button-blue.component";
 import Image from "next/image";
 import ButtonTransparent from "../Buttons/button-transparent.component copy";
 
 function Navigation() {
   const [shown, setShown] = useState(false);
+  const [navBarHeight, setnavBarHeight] = useState(120);
+
+  const getWindowHeight = () => {
+    const distanceY = window.pageYOffset || document.documentElement.scrollTop;
+    if (distanceY <= 40 && navBarHeight > 80) {
+      setnavBarHeight(120 - distanceY);
+    } else if (distanceY >= 40) {
+      setnavBarHeight(80);
+    }
+  };
 
   const handelNavList = () => {
     setShown((prev) => !prev);
   };
 
+  useEffect(() => {
+    window.addEventListener("scroll", getWindowHeight);
+
+    return () => {
+      window.removeEventListener("scroll", getWindowHeight);
+    };
+  }, []);
+
   return (
-    <>
-      <nav className="flex container m-auto justify-between h-[120px] bg-[#f9efe4] lg:w-5/6">
+    <div
+      className={`fixed w-full z-50 top-0 transition-all ease-in-out duration-1000  bg-[#f9efe4] ${
+        navBarHeight < 120 ? "shadow-lg" : ""
+      }`}
+      style={{ height: `${navBarHeight}px` }}
+    >
+      <nav
+        className={`flex container m-auto justify-between bg-[#f9efe4] lg:w-5/6 h-full`}
+      >
         <Image src="/slite.svg" width={60} height={30} alt="slite" />
         <ul className="justify-between items-center gap-4 lg:flex hidden ">
           <li className="px-3 py-4 text-small font-semibold hover:opacity-80">
@@ -65,7 +90,10 @@ function Navigation() {
         <ul
           className={`sandwish_menu--list ${
             shown ? "shown" : ""
-          } absolute top-0 bg-[#f9efe4] w-full left-0 py-4  mt-[100px] z-50 shadow-lg overflow-hidden`}
+          } absolute top-0 bg-[#f9efe4] w-full left-0 py-4 z-50 ${
+            navBarHeight < 120 ? "shadow-lg" : ""
+          } overflow-hidden lg:hidden`}
+          style={{ marginTop: `${navBarHeight - 20}px` }}
         >
           <li className="px-10 py-4 text-small font-semibold hover:opacity-80">
             Product
@@ -96,7 +124,7 @@ function Navigation() {
           </div>
         </ul>
       </nav>
-    </>
+    </div>
   );
 }
 

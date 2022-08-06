@@ -11,7 +11,7 @@ import ButtonTransparent from "../../components/Buttons/button-transparent.compo
 function Hero() {
   return (
     <>
-      <section className="hero mt-16">
+      <section className="hero mt-52">
         <div className="md:w-[750px] m-auto">
           <div className="hero-title">
             <h1 className=" lg:text-2xl md:text-xl text-large text-center font-semibold">
