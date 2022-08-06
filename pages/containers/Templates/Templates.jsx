@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React from "react";
+import { Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import ButtonTransparent from "../../components/Buttons/button-transparent.component copy";
 
@@ -42,10 +43,14 @@ function Templates() {
       />
       <div className="relative">
         <Swiper
-          spaceBetween={200}
+          slidesPerView={9}
+          spaceBetween={30}
+          preventInteractionOnTransition={true}
           loop={true}
-          slidesPerView={10}
-          speed={1000}
+          draggable={false}
+          autoplay={{ delay: 1, disableOnInteraction: false }}
+          modules={[Autoplay]}
+          speed={4000}
           className="carousel-template my-16 relative"
         >
           {carousel.map((cart, i) => (
